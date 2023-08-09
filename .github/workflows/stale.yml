@@ -1,0 +1,75 @@
+# This workflow warns and then closes issues and PRs that have had no activity for a specified amount of time.
+#
+# You can adjust the behavior by modifying this file.
+# For more information, see:
+# https://github.com/actions/stale
+name: Mark stale issues and pull requests
+
+on:
+  schedule:
+  - cron: '43 2 * * *'
+
+jobs:
+  stale:
+
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+    - uses: actions/stale@v8
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        stale-issue-label: stale-issue-label
+        stale-pr-label: stale-pr-label
+        days-before-issue-stale: 1
+        days-before-pr-stale: 2
+        days-before-close: 5
+        days-before-issue-close: 3
+        days-before-pr-close: 4
+        stale-issue-message: stale-issue-message
+        stale-pr-message: stale-pr-message
+        close-issue-message: close-issue-message
+        close-pr-message: close-pr-message
+        close-issue-label: close-issue-label
+        close-issue-reason: close-issue-reason
+        close-pr-label: close-pr-label
+        exempt-issue-labels: exempt-issue-label
+        exempt-pr-labels: exempt-pr-label
+        # only-labels: 0
+        # only-issue-labels: 0
+        # only-pr-labels: 0
+        # any-of-labels: 0
+        # any-of-issue-labels: 0
+        # any-of-pr-labels: 0
+        operations-per-run: 20
+        # remove-stale-when-updated: 0
+        # remove-issue-stale-when-updated: 0
+        # remove-pr-stale-when-updated: 0
+        labels-to-add-when-unstale: label-to-add-when-unstale
+        labels-to-remove-when-stale: label-to-add-when-unstale
+        labels-to-remove-when-unstale: stale-issue-label,stale-pr-label
+        # debug-only: true
+        # ascending: true
+        # start-date: 0
+        # delete-branch: false
+        exempt-milestones: exempt-milestone
+        exempt-issue-milestones: exempt-issue-milestone
+        exempt-pr-milestones: exempt-pr-milestone
+        # exempt-all-milestones: true
+        # exempt-all-issue-milestones: true
+        # exempt-all-pr-milestones: true
+        # exempt-assignees: 0
+        # exempt-issue-assignees: 0
+        # exempt-pr-assignees: 0
+        # exempt-all-assignees: 0
+        # exempt-all-issue-assignees: 0
+        # exempt-all-pr-assignees: 0
+        # exempt-draft-pr: 0
+        # enable-statistics: true
+        # ignore-updates: 0
+        # ignore-issue-updates: 0
+        # ignore-pr-updates: 0
+        # include-only-assigned: 0
+
