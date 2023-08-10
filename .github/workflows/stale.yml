@@ -33,7 +33,7 @@ jobs:
         close-issue-message: close-issue-message
         close-pr-message: close-pr-message
         close-issue-label: close-issue-label
-        close-issue-reason: close-issue-reason
+        close-issue-reason: completed
         close-pr-label: close-pr-label
         exempt-issue-labels: exempt-issue-label
         exempt-pr-labels: exempt-pr-label
